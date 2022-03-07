@@ -1,0 +1,46 @@
+def msg():
+    name = input('enter group or uName : ')
+    message = input("enter message")
+    Count = int(input("enter message count"))
+
+    # find whom to msg
+    user = driver.find_element_by_xpath(
+        '//span[@title="{}"]'.format(name)
+                                    )
+    user.click()
+    text_box=driver.find_element_by_class_name('_2A8P4')
+    #send btn
+    for i in range(Count):
+        text_box.send_keys(message)
+        driver.find_element_by_class_name("_1E0Oz").click()
+
+msg()
+
+def reps():
+    print("do u want to send more msg to anyone")
+    askUser = input("press y for yes and n for no : ")
+    if(askUser=='Y' or askUser=='y'):
+        msg()
+        reps()
+    elif(askUser=='N' or askUser=='n'):
+        print("thank u see u soon")
+    else:
+        print("please enter valid option :/n")
+        reps()
+    reps()
+
+
+
+
+
+with open("Listname4.csv") as csvfile:
+ csv_reader=csv.reader(csvfile)
+ for line in csv_reader:
+
+  print(line)
+
+יניב אמריקאי,היי
+לוטם כהן,היי
+אדיסו צוות,מה נשמע
+ביטון,מה קורה
+שי בוש,מה אומר אחי
